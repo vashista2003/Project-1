@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Model</title>
+    <style>
+        body{
+            background-color: black;
+            color: bisque;
+        }
+        .Abc{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+
+        }
+        .C{
+            text-align: center;
+        }
+        .A{
+            text-align: left;
+        }
+        .b{
+            text-align: center;
+            padding: 5px;
+            width:65%;
+            margin:5px;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 500%;
+          background-color: black;
+          color: blue;
+          text-align:left;
+          border-radius: 6px;
+          padding: 5px 0;
+          position: absolute;
+          z-index: 1;
+        }
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          cursor:move;
+        }
+        h6{
+            text-align: left;
+            position: relative;
+            font-size: 80%;
+        }
+        .d{
+            margin:5px;
+            padding: 5px;
+            width:66%;
+            background-color: aqua;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="tooltip">description<br/>
+        <span class="tooltiptext"><h6 class="A">1)Pregnancies: Number of times pregnant</h6><h6 class="A">2)Glucose: Plasma glucose concentration a 2 hours in an oral glucose tolerance test</h6><h6 class="A">3)BloodPressure: Diastolic blood pressure (mm Hg)</h6><h6 class="A">4)SkinThickness: Triceps skin fold thickness (mm)</h6><h6 class="A">5)Insulin: 2-Hour serum insulin (mu U/ml)</h6><h6 class="A">6)BMI: Body mass index (weight in kg/(height in m)^2)</h6><h6 class="A">7)DiabetesPedigreeFunction: Diabetes pedigree function</h6><h6 class="A">8)Age: Age (years)</h6></span>
+    </div>
+    <a href="/"><h1 class="C">Diabetes Prediction Model</h1></a>
+    <form action="{{ url_for('predict')}}" method="post" class="Abc">
+        <input type="text" required="required" class="b" name="a" placeholder="Pregnancies"/>
+        <input type="text" required="required" class="b" name="b" placeholder="Glucose"/>
+        <input type="text" required="required" class="b" name="c" placeholder="BloodPressure"/>
+        <input type="text" required="required" class="b" name="d" placeholder="SkinThickness"/>
+        <input type="text" required="required" class="b" name="e" placeholder="Insulin"/>
+        <input type="text" required="required" class="b" name="f" placeholder="BMI"/>
+        <input type="text" required="required" class="b" name="g" placeholder="DiabetesPedigreeFunction"/>
+        <input type="text" required="required" class="b" name="h" placeholder="Age"/>
+        <button class="d" type="submit">predict</button>
+    </form>
+
+    <h2 class="C">{{ Prediction_text }}</h2>
+</body>
+</html>
